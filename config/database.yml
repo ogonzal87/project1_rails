@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: project_1_development
+  host: localhost
+  username: oscargonzalez
+  password:
+
+test:
+  <<: *default
+  database: project_1_test
+  host: localhost
+  username: oscargonzalez
+  password:
+
+production:
+  <<: *default
+  database: project_1_production
+  pool: 5
+  username: project_1
+  password:
