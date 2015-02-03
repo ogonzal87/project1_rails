@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'static_pages#home'
-
   get '/drinks',       to: 'drinks#index'
   get '/drinks/:id',   to: 'drinks#show', as: :drink
   get '/about',        to: 'static_pages#about'
