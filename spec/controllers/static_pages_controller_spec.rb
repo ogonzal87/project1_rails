@@ -8,3 +8,12 @@ describe StaticPagesController, type: :controller do
     end
   end
 end
+
+describe StaticPagesController, type: :controller do
+  describe '#about' do
+    it 'renders about' do
+      get :about
+      expect(response).to render_template(:about)
+    end
+  end
+end
