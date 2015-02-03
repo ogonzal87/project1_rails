@@ -1,0 +1,27 @@
+<h2><%= @drink.name %></h2>
+<!-- IMAGE -->
+<div>
+  <img src="/images/<%= @drink.image_file %>" class="img-responsive" alt="Drinks" >
+</div>
+<!-- NAVEGATION TABS -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#description" data-toggle="tab" aria-expanded="true">Description</a></li>
+  <li class=""><a href="#ingredients" data-toggle="tab" aria-expanded="true">Ingredients</a></li>
+  <li class=""><a href="#directions" data-toggle="tab" aria-expanded="true">Directions</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="description">
+    <p><%= @drink.description %></p>
+  </div>
+  <div class="tab-pane fade" id="ingredients">
+    <p><%= @drink.ingredients %></p>
+  </div>
+  <div class="tab-pane fade" id="directions">
+    <p><%= @drink.directions %></p>
+  </div>
+</div>
+<!-- BACK BOTTON -->
+<div class="backbotton">
+	<button type="button" class="btn btn-primary"
+	<button onclick="window.history.back()">Back</button>
+</div>
