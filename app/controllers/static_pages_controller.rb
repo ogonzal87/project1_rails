@@ -8,4 +8,8 @@ class StaticPagesController < ApplicationController
 		@active = 'about'
 	end
 	
+	def contact
+		@active = 'contact'
+	end
+
 end

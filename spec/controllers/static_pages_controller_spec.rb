@@ -17,3 +17,13 @@ describe StaticPagesController, type: :controller do
     end
   end
 end
+
+
+describe StaticPagesController, type: :controller do
+  describe '#contact' do
+    it 'renders contact' do
+      get :contact
+      expect(response).to render_template(:contact)
+    end
+  end  
+end
