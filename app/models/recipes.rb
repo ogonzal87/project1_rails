@@ -23,7 +23,7 @@ class Recipes
         image_file: 'sidecar.jpg'
         ),
       Recipe.new(id: 3, 
-        name: 'Old Fashioned', 
+        name: 'Old Fashion', 
         description: 'Vice DIY biodiesel fingerstache, marfa before they sold out cardigan tumblr kale chips pork belly raw denim mlkshk. Etsy butcher swag, echo park ethnic small batch gentrify. Bicycle rights mustache artisan, keytar lo-fi sustainable fap stumptown vegan salvia freegan four loko terry richardson. Photo booth wes anderson raw denim williamsburg retro. Keffiyeh street art brunch ethical. Swag master cleanse ethical aesthetic. You probably havent heard of them umami hoodie fixie tofu pickled.', 
         ingredients: 'heloe', 
         time: 'Less than 5 minutes!', 
@@ -60,10 +60,10 @@ class Recipes
     end
   end
 
- def self.search(pattern)
+ def self.search(term)
     all.select do |item|
-      item.name.downcase.include?(pattern.downcase) ||
-      item.description.downcase.include?(pattern.downcase)
+      item.name.downcase.include?(term.downcase) ||
+      item.description.downcase.include?(term.downcase)
     end
   end
 

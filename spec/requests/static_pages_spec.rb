@@ -4,18 +4,17 @@ describe 'static pages' do
   subject { page }
 
   describe 'home page' do
-    before { visit root_path } # i am not sure why this this failing... it tells me that 'visit' is an undefined method when i run rpec..
+    before { visit root_path } 
 
     it { should have_title('Manly Drinks') }
-    it { should have_selector('h1', text: 'Manly!') }
+    it { should have_selector('h1', text: 'Drinks') }
   end
 
   describe 'about page' do
-  	before { visit root_path } # i am not sure why this this failing... it tells me that 'visit' is an undefined method when i run rpec..
+  	before { visit about_path }
 
-  	it { should have_title('About') }
-  	it { should have selector('p', text: 'Food') }
+  	it { should have_title('Manly Drinks') }
+  	it { should have_selector('h1', text: 'About Me') }
   end
 
 end
-

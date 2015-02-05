@@ -1,8 +1,13 @@
 class DrinksController < ApplicationController
   
   def index 
-    @active = 'recipes' 
-    @drinks = Recipes.all
+    @active = 'recipes'
+    search_term = params[:search]
+    if search_term 	
+    	@drinks = Recipes.search(search_term)
+    else
+    	@drinks = Recipes.all
+    end
   end
 
   def show 
