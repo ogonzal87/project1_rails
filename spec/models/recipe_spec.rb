@@ -12,6 +12,7 @@ describe Recipe do
 
 	it { should respond_to(:name) }
 	it { should respond_to(:description) }
+	it { should respond_to(:ingredients) }
 	it { should respond_to(:time) }
 	it { should respond_to(:directions) }
 	it { should respond_to(:image_file) }
@@ -32,6 +33,7 @@ describe Recipe do
         before { drink.name = 'a' * 2 }
         it { should_not be_valid }
       end
+    end
 
    	describe 'description' do
 
