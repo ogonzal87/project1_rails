@@ -1,4 +1,4 @@
-class DrinksController < ApplicationController
+class RecipesController < ApplicationController
   
   def index 
     @active = 'recipes'

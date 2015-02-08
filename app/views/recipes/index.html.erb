@@ -11,12 +11,12 @@
 
 <!-- LIST OF ITEMS -->
 <div class="row">
-  <% @drinks.each do |item| %>
+  <% @drinks.each do |drink| %>
     <div class="col-md-4">
-      <a href="drinks/<%= item.id %>" class="list-group-item">
-        <h3><%= item.name %></h3>
-          <img class="middle img-responsive" src="assets/<%= item.image_file %>"/>       
-      </a>
+      <a href="drinks/<%= drink.id %>" class="list-group-item">
+        <h3><%= drink.name %></h3>
+        <img class="middle" class="img-responsive" src="assets/<%= drink.image_file %>"/>       
+      </a>         
     </div>
   <% end %>
 </div>
