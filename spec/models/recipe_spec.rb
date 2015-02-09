@@ -1,14 +1,12 @@
 require 'rails_helper'
 
 describe Recipe do 
-	let(:drink) { Recipe.new(name: 'Skinny Girl', 
-        									description: 'Blah, blah, blah', 
-        									ingredients: '2 1/2 ounces cucumber-infused gin, 1/2 ounce lime-flavored simple syrup, Lime wedge', 
-									        time: '5 minutes', 
-									        directions: 'Combine the gin and lime syrup in an ice-filled cocktail.',
-									        image_file: 'gimlet.jpg') }
+	let(:recipe) { Recipe.new(name: 'Skinny Girl', description: 'Blah, blah, blah', 
+								 ingredients: '2 1/2 ounces cucumber-infused gin, 1/2 ounce lime-flavored simple syrup, Lime wedge', 
+					       time: '5 minutes', image_file: 'gimlet.jpg',
+					       directions: 'Combine the gin and lime syrup in an ice-filled cocktail.') }
 
-	subject { drink }
+	subject { recipe }
 
 	it { should respond_to(:name) }
 	it { should respond_to(:description) }
@@ -25,17 +23,17 @@ describe Recipe do
     describe 'name' do
       
       context 'not present' do
-        before { drink.name = nil }
+        before { recipe.name = nil }
         it { should_not be_valid }
       end
 
    		context 'too short' do
-        before { drink.name = 'a' * 2 }
+        before { recipe.name = 'a' * 2 }
         it { should_not be_valid }
       end
 
       context 'too long' do
-        before { drink.name = 'a' * 255 }
+        before { recipe.name = 'a' * 255 }
         it { should_not be_valid }
       end
 
@@ -44,7 +42,7 @@ describe Recipe do
    	describe 'description' do
 
    		context 'not present' do
-        before { drink.description = nil }
+        before { recipe.description = nil }
         it { should_not be_valid }
       end
     end
@@ -52,7 +50,7 @@ describe Recipe do
     describe 'ingredients' do
 
    		context 'not present' do
-        before { drink.ingredients = nil }
+        before { recipe.ingredients = nil }
         it { should_not be_valid }
       end
     end
@@ -60,7 +58,7 @@ describe Recipe do
     describe 'time' do
 
    		context 'not present' do
-        before { drink.time = nil }
+        before { recipe.time = nil }
         it { should_not be_valid }
       end
     end
@@ -68,7 +66,7 @@ describe Recipe do
     describe 'directions' do
 
    		context 'not present' do
-        before { drink.directions = nil }
+        before { recipe.directions = nil }
         it { should_not be_valid }
       end
     end
@@ -76,7 +74,7 @@ describe Recipe do
     describe 'image_file' do
 
    		context 'not present' do
-        before { drink.image_file = nil }
+        before { recipe.image_file = nil }
         it { should_not be_valid }
       end
     end

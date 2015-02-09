@@ -16,5 +16,4 @@ describe 'static pages' do
   	it { should have_title('Manly Drinks') }
   	it { should have_selector('h1', text: 'About Me') }
   end
-
 end

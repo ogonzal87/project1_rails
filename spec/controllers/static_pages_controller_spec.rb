@@ -7,19 +7,14 @@ describe StaticPagesController, type: :controller do
       expect(response).to render_template(:home)
     end
   end
-end
 
-describe StaticPagesController, type: :controller do
   describe '#about' do
     it 'renders about' do
       get :about
       expect(response).to render_template(:about)
     end
   end
-end
 
-
-describe StaticPagesController, type: :controller do
   describe '#contact' do
     it 'renders contact' do
       get :contact
