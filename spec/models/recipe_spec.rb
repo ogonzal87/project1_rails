@@ -33,6 +33,12 @@ describe Recipe do
         before { drink.name = 'a' * 2 }
         it { should_not be_valid }
       end
+
+      context 'too long' do
+        before { drink.name = 'a' * 255 }
+        it { should_not be_valid }
+      end
+
     end
 
    	describe 'description' do
