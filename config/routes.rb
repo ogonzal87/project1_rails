@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get '/about',        to: 'static_pages#about'
+  get '/drinks/new',   to: 'recipes#new', as: :new_drink
+  post '/drinks/',     to: 'recipes#create' 
   get '/contact',      to: 'static_pages#contact'
-  get '/drinks',       to: 'recipes#index'
-  get '/drinks/:id',   to: 'recipes#show'
+  get '/drinks',       to: 'recipes#index' 
+  get '/drinks/:id',   to: 'recipes#show', as: 'drink'
 
 end
 
