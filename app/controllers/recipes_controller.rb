@@ -14,4 +14,28 @@ class RecipesController < ApplicationController
     @active = 'recipes'
     @drink = Recipe.find(params[:id].to_i)
   end
+
+   def new
+    @active = 'recipes'
+    @drink   = Recipe.new
+  end
+
+  def create
+    @drink = Recipe.new(drink_params)
+    # if @item is valid, it returns a truthy value
+    if @drink.save
+      flash[:success] = "Drink created."
+      redirect_to drinks_path
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def drink_params
+    params.require(:drink).permit(:name, :description, :ingredients,
+                                 :time, :directions, :image_file)
+  end
+
 end

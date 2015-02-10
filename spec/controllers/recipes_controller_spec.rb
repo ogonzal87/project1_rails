@@ -38,6 +38,32 @@ describe RecipesController, type: :controller do
 	    end
   	end
 
+		describe 'GET #new' do
+	    
+	    it 'renders new' do
+	      get :new
+	      expect(response).to render_template(:new)
+	    end
 
+	    # Testing: @item == Item.new
+	    it 'assigns a new Drink' do
+	      get :new
+	      expect(assigns(:drink)).to be_a_new(Recipe)
+	    end
+  	end
 
+		describe 'POST #create' do
+	    
+	    context 'valid attributes' do
+	      let(:valid_attributes) { { name: 'Lemon Drops', description: 'This is delicious, trust me',
+	                               ingredients: 'blah, blah, blah', time: 'It would take less than 4 minutes',
+	                               directions: 'Just add water', image_file: 'image/jpg' } }
+
+	      it 'create new drink' do
+	        expect{
+	          post :create, drink: valid_attributes
+	        }.to change(Recipe, :count).by(1)
+	      end
+			end
+		end
 end
