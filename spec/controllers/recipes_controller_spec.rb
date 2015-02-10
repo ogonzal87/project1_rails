@@ -45,7 +45,6 @@ describe RecipesController, type: :controller do
 	      expect(response).to render_template(:new)
 	    end
 
-	    # Testing: @item == Item.new
 	    it 'assigns a new Drink' do
 	      get :new
 	      expect(assigns(:drink)).to be_a_new(Recipe)

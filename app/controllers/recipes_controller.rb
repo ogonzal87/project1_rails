@@ -12,17 +12,16 @@ class RecipesController < ApplicationController
 
   def show 
     @active = 'recipes'
-    @drink = Recipe.find(params[:id].to_i)
+    @drink = Recipe.find(params[:id])
   end
 
-   def new
+  def new
     @active = 'recipes'
-    @drink   = Recipe.new
+    @drink  = Recipe.new
   end
 
   def create
     @drink = Recipe.new(drink_params)
-    # if @item is valid, it returns a truthy value
     if @drink.save
       flash[:success] = "Drink created."
       redirect_to drinks_path

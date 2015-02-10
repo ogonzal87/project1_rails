@@ -1,4 +1,4 @@
-<% provide(:title, 'Add Item') %>
+<% provide(:title, 'Add Drink') %>
 <h1>Add Drink</h1>
 
 <%= form_for(@drink) do |drink| %>
@@ -6,7 +6,6 @@
 
   <%= drink.label :name %>
   <%= drink.text_field :name, autofocus: true %>
-
   <br>
   <%= drink.label :ingredients %>
   <%= drink.text_field :ingredients %>
