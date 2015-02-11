@@ -1,0 +1,26 @@
+<% provide(:title, 'Add Drink') %>
+<h1>Add Drink</h1>
+
+<%= form_for(@drink) do |drink| %>
+  <%= render 'shared/error_messages', object: drink.object %>
+
+  <%= drink.label :name %>
+  <%= drink.text_field :name, autofocus: true %>
+  <br>
+  <%= drink.label :ingredients %>
+  <%= drink.text_field :ingredients %>
+  <br>
+	<%= drink.label :description %>
+  <%= drink.text_field :description %>
+  <br>
+	<%= drink.label :time %>
+	<%= drink.text_field :time %>
+	<br>
+  <%= drink.label :directions %>
+	<%= drink.text_field :directions %>
+	<br>
+	<%= drink.label :image_file %>
+	<%= drink.text_field :image_file %>
+	<br>
+  <%= drink.submit 'Save' %>
+<% end %>

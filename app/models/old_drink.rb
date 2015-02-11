@@ -1,6 +1,6 @@
-# This class describes a single recipe and its characteristics. 
+# This class describes a single drink and its characteristics. 
 
-class Reciipe
+class Drinkkk
 
   attr_reader :id, :name, :description, :ingredients, :time, :directions, :image_file
 

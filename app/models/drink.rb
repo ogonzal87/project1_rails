@@ -1,5 +1,5 @@
-# This class describes a single recipe and its characteristics. 
-class Recipe < ActiveRecord::Base
+# This class describes a single Drink and its characteristics. 
+class Drink < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 3, maximum: 254 }
   validates :description, presence: true, length: { minimum: 3, maximum: 254 }
   validates :ingredients, presence: true, length: { minimum: 3, maximum: 254 }
