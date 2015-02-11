@@ -66,39 +66,6 @@ describe DrinksController, type: :controller do
     end
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	describe 'POST #create' do
 	  context 'valid attributes' do
 	    let(:valid_attributes) { { name: 'Lemon Drops', description: 'This is delicious, trust me',
@@ -135,4 +102,54 @@ describe DrinksController, type: :controller do
 		end
 
 
+	describe 'PATCH #update' do
+    let(:drink_for_edit) { Drink.create(name: 'Lemon Drops', description: 'This is delicious, trust me', 
+								 ingredients: 'blah, blah, blah', time: 'It would take less than 4 minutes', 
+								 directions: 'Just add water', image_file: 'image/jpg') }
+    context 'valid attributes' do
+      it 'updates drink' do
+        patch :update, id: drink_for_edit.id, drink: { name: 'Peach Drops' }
+        drink_for_edit.reload
+        expect(drink_for_edit.name).to eq('Peach Drops')
+      end
+
+      it 'redirects to drink#show' do
+        patch :update, id: drink_for_edit.id, drink: { name: '3-person sleeping_bag' }
+        expect(response).to redirect_to(drink_path(drink_for_edit.id)) # item#show
+      end
+    end
+
+    context 'invalid attributes' do
+      it 'does not update item' do
+        patch :update, id: drink_for_edit.id, drink: { name: '' }
+        drink_for_edit.reload
+        expect(drink_for_edit.name).to eq('Lemon Drops') # aka what we started with
+      end
+
+      it 're-renders edit' do
+        patch :update, id: drink_for_edit.id, drink: { name: '' }
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+
+	describe 'DELETE #destroy' do
+    it 'deletes requested item' do
+      drink_for_removal = Drink.create(name: 'Lemon Drops', description: 'This is delicious, trust me', 
+								 ingredients: 'blah, blah, blah', time: 'It would take less than 4 minutes', 
+								 directions: 'Just add water', image_file: 'image/jpg')
+      expect{
+        delete :destroy, id: drink_for_removal.id
+      }.to change(Drink, :count).by(-1)
+    end
+
+    it 'redirects to index' do
+      drink_for_removal = Drink.create(name: 'Lemon Drops', description: 'This is delicious, trust me', 
+								 ingredients: 'blah, blah, blah', time: 'It would take less than 4 minutes', 
+								 directions: 'Just add water', image_file: 'image/jpg')
+      delete :destroy, id: drink_for_removal.id
+      expect(response).to redirect_to(drinks_path)
+    end
+  end
 end
