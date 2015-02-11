@@ -1,5 +1,3 @@
-<% provide(:title, 'Items Index') %>
-
 <!-- SEARCH BAR -->
 <div class="searchbar">
   <form class="navbar-form" role="search">
@@ -18,9 +16,8 @@
   <% @drinks.each do |drink| %>
     <div class="col-md-4">
       <a href="drinks/<%= drink.id %>" class="list-group-item">
-        <h3><%= link_to drink.name, drink_path(drink.id) %></h3>
-        <img class="middle" class="img-responsive" src="assets/<%= drink.image_file %>"/>    
-        <%= link_to "delete", drink, method: :delete, data: { confirm: 'Are you sure?' } %>   
+        <h3><%= drink.name %></h3>
+        <img class="middle" class="img-responsive" src="assets/<%= drink.image_file %>"/>       
       </a>         
     </div>
   <% end %>
