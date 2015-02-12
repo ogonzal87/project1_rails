@@ -1,5 +1,5 @@
-class AddIngredientsToRecipes < ActiveRecord::Migration
+class AddIngredientsToDrinks < ActiveRecord::Migration
   def change
-    add_column :recipes, :ingredients, :string
+    add_column :drinks, :ingredients, :string
   end
 end

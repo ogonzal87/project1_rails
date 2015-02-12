@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get '/about',        to: 'static_pages#about'
   get '/contact',      to: 'static_pages#contact'
-  get '/drinks',       to: 'recipes#index'
-  get '/drinks/:id',   to: 'recipes#show'
+  # get '/drinks',       to: 'drinks#index'
+  # get '/drinks/:id',   to: 'drinks#show'
+
+  resources :drinks
 
 end
 
